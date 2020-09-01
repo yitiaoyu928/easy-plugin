@@ -41,3 +41,15 @@ function clearRedo(arr = []) {
   }
   return newarr;
 }
+// 数组拍平
+// ArrayFlat
+function ArrayFlat(array = []) {
+  const isDeep = array.some(item=>{
+    return item instanceof Array;
+  });
+  if(!isDeep) {
+    return array;
+  }
+  const res = Array.prototype.concat.apply([],array);
+  return ArrayFlat(res);
+}
