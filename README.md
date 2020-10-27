@@ -5,3 +5,5 @@ Simple JS plug-in
 防抖：deBounce
 去除空白字符：clearTrim
 去除数组重复：clearRedo
+#更新JS特效
+typeWriting
