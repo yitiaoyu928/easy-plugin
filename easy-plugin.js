@@ -74,3 +74,59 @@ function typeWriting(el,text="easy-plugin",interval = 300) {
     }
   },interval)
 }
+// 深克隆
+function deepClone(target) {
+  if(typeof target !== "object") {
+    return target;
+  }
+  let temp;
+  if(target instanceof Array) {
+    temp = [];
+  }else if(target instanceof Object) {
+    temp = {};
+  }
+  for(let k in target) {
+    temp[k] = deepClone(target[k]);
+  }
+  return temp;
+}
+// 深比较
+let deepCompare = (function(){
+  function isObject(v) {
+    return typeof v === "object"?true:false;
+  }
+  return function(v1,v2) {
+    if(!isObject(v1) || !isObject(v2)) {
+      return v1 === v2;
+    }
+    if(v1 === v2) {
+      return true;
+    }
+    let v1Key = Object.keys(v1);
+    let v2Key = Object.keys(v2);
+    if(v1Key.length !== v2Key.length) {
+      return false;
+    }
+    for(let k in v1) {
+      let res = deepCompare(v1[k],v2[k]);
+      if(!res) {
+        return false;
+      }
+    }
+    return true;
+  }
+})();
+// 冒泡排序
+function bubbleSort(arr) {
+  let temp;
+  for(let i = 0;i<arr.length-1;i++) {
+    for(let j = 0;j<arr.length-1-i;j++) {
+      if(arr[j]>arr[j+1]) {
+        temp = arr[j];
+        arr[j] = arr[j+1];
+        arr[j+1] = temp;
+      }
+    }
+  }
+  return arr;
+}

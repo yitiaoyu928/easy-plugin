@@ -7,3 +7,7 @@ Simple JS plug-in
 去除数组重复：clearRedo
 #更新JS特效
 typeWriting
+#添加深拷贝,深比较
+deepClone,deepCompare
+#冒泡排序
+bubbleSort
